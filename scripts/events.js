@@ -5,7 +5,7 @@ document.getElementById('previous').addEventListener('click', function() {
         case states.PLAYING:
             if (pairIdx > 0) {
                 x = y = z = t = 0; // Reset camera position and seek time.
-                pairIdx++;
+                pairIdx--;
                 varIdx = 0;
                 var src = path + pairs[pairIdx][varIdx] + ext;
                 console.log('Loading ' + src);
