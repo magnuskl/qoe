@@ -1,6 +1,6 @@
 // Global constants and variables
 
-const path = './assets/dive/'; // Path to source files
+const path = './assets/drive/'; // Path to source files
 const ext = '.mp4'; // Source file suffix
 // Source file prefix
 const src = ['480-23', '480-34', '720-23', '720-34', '1080-23', '1080-34'];

@@ -5,7 +5,10 @@ document.getElementById('previous').addEventListener('click', function() {
         case states.PLAYING:
             if (pairIdx > 0) {
                 x = y = z = t = 0; // Reset camera position and seek time.
-                var src = path + pairs[--pairIdx][0] + ext;
+                pairIdx++;
+                varIdx = 0;
+                var src = path + pairs[pairIdx][varIdx] + ext;
+                console.log('Loading ' + src);
                 player.src(src);
                 setState(states.PLAYING);
             }
@@ -16,6 +19,7 @@ document.getElementById('previous').addEventListener('click', function() {
         case states.END:
             x = y = z = t = 0; // Reset camera position and seek time.
             var src = path + pairs[pairs.length - 1][0] + ext;
+            console.log('Loading ' + src);
             player.src(src);
             setState(states.PLAYING);
             break;
@@ -28,14 +32,19 @@ document.getElementById('next').addEventListener('click', function() {
     switch(state) {
         case states.START:
             x = y = z = t = 0; // Reset camera position and seek time.
-            var src = path + pairs[0][0] + ext;
+            pairIdx = varIdx = 0;
+            var src = path + pairs[pairIdx][varIdx] + ext;
+            console.log('Loading ' + src);
             player.src(src);
             setState(states.PLAYING);
             break;
         case states.PLAYING:
             if (pairIdx < pairs.length - 1) {
-                var src = path + pairs[++pairIdx][0] + ext;
+                pairIdx++;
+                varIdx = 0;
+                var src = path + pairs[pairIdx][varIdx] + ext;
                 x = y = z = t = 0; // Reset camera position and seek time.
+                console.log('Loading ' + src);
                 player.src(src);
                 setState(states.PLAYING);
             } else {
@@ -58,6 +67,7 @@ document.getElementById('switch').addEventListener('click', function() {
 
             varIdx = varIdx ^ 1;
             var src = path + pairs[pairIdx][varIdx] + ext;
+            console.log('Loading ' + src);
             player.src(src);
             setState(states.PLAYING);
 

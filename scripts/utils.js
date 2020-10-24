@@ -65,6 +65,7 @@ function setState(_state) {
 
             break;
         case states.PLAYING:
+            console.log('Set state: PLAYING');
             var title = 'Pair ' + (pairIdx + 1)
                 + ' of ' + pairs.length
                 + ' - Variant ' + (varIdx + 1)
