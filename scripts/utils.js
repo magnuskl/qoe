@@ -70,6 +70,8 @@ function setState(_state) {
                 + ' - Variant ' + (varIdx + 1)
                 + ' of ' + pairs[0].length;
             document.getElementById('title').innerHTML = title;
+
+            document.getElementById('switch').innerHTML = (varIdx ? '\\' : '/');
             
             player.show();
             document.getElementById('start').style.display = 'none';
