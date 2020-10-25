@@ -35,7 +35,6 @@ html {
 .controls {
     margin:     auto;
     width:      100%;
-    padding:    5px;
     text-align: center;
 }
 #start p, #end p {
@@ -45,17 +44,17 @@ html {
     width: 100%;
 }
 a {
+    padding-top:     7px;
     text-decoration: none;
     display:         inline-block;
-    padding-top:     15px;
-    height:          50px;
-    width:           50px;
 }
 a:hover, a:active {
     color:      black;
     background: #00a8ff;
 }
 .button {
+    height:        36px;
+    width:         36px;
     border-radius: 50%;
     color:         white;
     background:    #5800ff;

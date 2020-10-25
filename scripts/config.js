@@ -4,17 +4,17 @@ let vjsConfig = null; // Video.js configuration object
 function loadVideoJSConfig() {
     vjsConfig = {
         // Standard video element options
-        'autoplay':        true,
-        'loop':            true,
-        'muted':           true,
-        'preload':        'auto',
-        'controls':        false,
-        'dblclick':        false,
+        'autoplay': true,
+        'loop':     true,
+        'muted':    true,
+        'preload':  'auto',
+        'controls': false,
+        'dblclick': false,
         // Video.js specific options
-        'responsive':      true,
-        'liveui':          true,
-        'fill':            true,
-        'sources':         [],
+        'responsive': true,
+        'liveui':     true,
+        'fill':       true,
+        'sources':    [],
         'plugins': {
             'vr': {
                 'projection': '360',
