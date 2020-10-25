@@ -33,9 +33,10 @@ html {
     color:           white;
 }
 .controls {
-    margin:     auto;
-    width:      100%;
-    text-align: center;
+    margin:      auto;
+    padding-top: 7px;
+    width:       100%;
+    text-align:  center;
 }
 #start p, #end p {
     margin: 20px 0px 20px 0px;
@@ -53,6 +54,8 @@ a:hover, a:active {
     background: #00a8ff;
 }
 .button {
+    margin-left:   20px;
+    margin-right:  20px;
     height:        36px;
     width:         36px;
     border-radius: 50%;
