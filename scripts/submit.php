@@ -8,7 +8,7 @@ if (!file_exists($file)) {
     $data = "candidate_number" . "," . 
             "experiment_id"    . "," .
             "timestamp"        . "," .
-            "first_variant_"   . "," .
+            "first_variant"   . "," .
             "second_variant"   . "," .
             "selected_variant" . "\n";
 }
