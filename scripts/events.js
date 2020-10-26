@@ -8,7 +8,6 @@ document.getElementById('previous').addEventListener('click', function() {
                 pairIdx--;
                 varIdx = 0;
                 var src = path + pairs[pairIdx][varIdx] + ext;
-                console.log('Loading ' + src);
                 player.src(src);
                 setState(states.PLAYING);
             }
@@ -19,7 +18,6 @@ document.getElementById('previous').addEventListener('click', function() {
         case states.END:
             x = y = z = t = 0; // Reset camera position and seek time.
             var src = path + pairs[pairs.length - 1][0] + ext;
-            console.log('Loading ' + src);
             player.src(src);
             setState(states.PLAYING);
             break;
@@ -34,7 +32,6 @@ document.getElementById('next').addEventListener('click', function() {
             x = y = z = t = 0; // Reset camera position and seek time.
             pairIdx = varIdx = 0;
             var src = path + pairs[pairIdx][varIdx] + ext;
-            console.log('Loading ' + src);
             player.src(src);
             setState(states.PLAYING);
             break;
@@ -44,7 +41,6 @@ document.getElementById('next').addEventListener('click', function() {
                 varIdx = 0;
                 var src = path + pairs[pairIdx][varIdx] + ext;
                 x = y = z = t = 0; // Reset camera position and seek time.
-                console.log('Loading ' + src);
                 player.src(src);
                 setState(states.PLAYING);
             } else {
@@ -67,7 +63,6 @@ document.getElementById('switch').addEventListener('click', function() {
 
     varIdx = varIdx ^ 1;
     var src = path + pairs[pairIdx][varIdx] + ext;
-    console.log('Loading ' + src);
     player.src(src);
     setState(states.PLAYING);
 });
@@ -98,6 +93,32 @@ document.getElementById('title').addEventListener('click', function () {
     setState(states.PLAYING);
 });
 
+// Submit data
+
+document.getElementById('submit').addEventListener('click', function () {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('cand').disabled = true;
+            document.getElementById('exp').disabled = true;
+            document.getElementById('data').disabled = true;
+            document.getElementById('submit').disabled = true;
+            alert('Success! The data have been submitted.');
+        }
+    };
+    
+    var cand = document.getElementById('cand').value;
+    var exp  = document.getElementById('exp').value;
+    var time = new Date().getTime();
+    var data = document.getElementById('data').value;
+    var query = '?cand=' + cand
+              + '&exp=' + exp
+              + '&time=' + time
+              + '&data=' + data;
+    xhttp.open('GET', './scripts/submit.php' + encodeURI(query), true);
+    xhttp.send();
+});
+
 // Start playback
 
 player.on('play', function() {
@@ -106,7 +127,6 @@ player.on('play', function() {
     player.vr().camera.position.setZ(z);
     player.currentTime(t);
 });
-
 
 // Load window
 

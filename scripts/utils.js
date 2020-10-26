@@ -1,53 +1,3 @@
-// Generate combinations of array.
-
-function combinations(arr, k) {
-    var i, j, combs, head, tailcombs;
-
-    if (k > arr.length || k <= 0) {
-        return [];
-    }
-
-    if (k == arr.length) {
-        return [arr];
-    }
-
-    if (k == 1) {
-        combs = [];
-        for (i = 0; i < arr.length; i++) {
-            combs.push([arr[i]]);
-        }
-        return combs;
-    }
-
-    combs = [];
-    for (i = 0; i < arr.length - k + 1; i++) {
-        head = arr.slice(i, i + 1);
-        tailcombs = combinations(arr.slice(i + 1), k - 1);
-        
-        for (j = 0; j < tailcombs.length; j++) {
-            combs.push(head.concat(tailcombs[j]));
-        }
-    }
-    return combs;
-}
-
-// Shuffle array.
-
-function shuffle(arr) {
-    var curIdx = arr.length, tmp, rndIdx;
-
-    while (0 !== curIdx) {
-        rndIdx = Math.floor(Math.random() * curIdx);
-        curIdx -= 1;
-
-        tmp = arr[curIdx];
-        arr[curIdx] = arr[rndIdx];
-        arr[rndIdx] = tmp;
-    }
-
-    return arr;
-}
-
 // Set application state.
 
 function setState(_state) {
@@ -106,17 +56,15 @@ function setState(_state) {
                 document.getElementById('incomplete').style.display = '';
             }
             else { // All pairs assessed
-                var res = '';
-                var cand = document.getElementById('cand').value;
-                var exp = document.getElementById('exp').value;
-
+                var data = '';
                 for (i = 0; i < pairs.length; i++) {
-                    res += pairs[i][0] + ','
-                        + pairs[i][1] + ','
-                        + sel[i] + '\n';
+                    data += pairs[i][0] + ','
+                         +  pairs[i][1] + ','
+                         +  sel[i] + '\n';
+                    
                 }
-                document.getElementById('data').innerHTML = res;
-                
+                document.getElementById('data').value = data;
+
                 document.getElementById('complete').style.display = '';
                 document.getElementById('incomplete').style.display = 'none';
             }
@@ -124,6 +72,56 @@ function setState(_state) {
             break;
     }
     state = _state;
+}
+
+// Generate combinations of array.
+
+function combinations(arr, k) {
+    var i, j, combs, head, tailcombs;
+
+    if (k > arr.length || k <= 0) {
+        return [];
+    }
+
+    if (k == arr.length) {
+        return [arr];
+    }
+
+    if (k == 1) {
+        combs = [];
+        for (i = 0; i < arr.length; i++) {
+            combs.push([arr[i]]);
+        }
+        return combs;
+    }
+
+    combs = [];
+    for (i = 0; i < arr.length - k + 1; i++) {
+        head = arr.slice(i, i + 1);
+        tailcombs = combinations(arr.slice(i + 1), k - 1);
+        
+        for (j = 0; j < tailcombs.length; j++) {
+            combs.push(head.concat(tailcombs[j]));
+        }
+    }
+    return combs;
+}
+
+// Shuffle array.
+
+function shuffle(arr) {
+    var curIdx = arr.length, tmp, rndIdx;
+
+    while (0 !== curIdx) {
+        rndIdx = Math.floor(Math.random() * curIdx);
+        curIdx -= 1;
+
+        tmp = arr[curIdx];
+        arr[curIdx] = arr[rndIdx];
+        arr[rndIdx] = tmp;
+    }
+
+    return arr;
 }
 
 // Generate UUID.

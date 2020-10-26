@@ -1,15 +1,18 @@
 html {
     background: black;
 }
+
 * {
     margin:     0px;
     padding:    0px;
     box-sizing: border-box;
 }
+
 ::before,
 ::after {
     box-sizing: inherit;
 }
+
 .outer {
     display:       grid;
     width:         100vw;
@@ -17,6 +20,7 @@ html {
     justify-items: center;
     align-items:   center;
 }
+
 .inner {
     display:            grid;
     grid-template-rows: 1fr 20fr 2fr 1fr;
@@ -27,32 +31,20 @@ html {
     font-family:        sans-serif;
     color:              white;
 }
+
 .header {
     margin:          auto;
     text-decoration: none;
     color:           white;
 }
+
 .controls {
     margin:         15px auto 15px auto;
     width:          100%;
     text-align:     center;
 }
-#start p, #end p {
-    margin: 15px 0px 15px 0px;
-}
-#end #cand, #end #exp, #end #data {
-    width: 100%;
-}
-a {
-    padding-top:     7px;
-    text-decoration: none;
-    display:         inline-block;
-}
-a:hover, a:active {
-    color:      black;
-    background: #00a8ff;
-}
-.button {
+
+.controls .button {
     margin-left:   20px;
     margin-right:  20px;
     height:        36px;
@@ -61,6 +53,35 @@ a:hover, a:active {
     color:         white;
     background:    #5800ff;
 }
+
+.controls a {
+    padding-top:     7px;
+    text-decoration: none;
+    display:         inline-block;
+}
+
+.controls a:hover,
+.controls a:active {
+    color:      black;
+    background: #00a8ff;
+}
+
+#start p,
+#end p {
+    margin: 15px 0px 15px 0px;
+}
+
+#start a,
+#end a {
+    color: white;
+}
+
+#end #cand,
+#end #exp,
+#end #data {
+    width: 100%;
+}
+
 .footer {
     margin: 0px auto 0px auto;
 }

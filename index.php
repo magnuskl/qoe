@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Video.js</title>
+    <title>QoE Assessment Tool for Panoramic Video</title>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/video.js@7.5.0/dist/video-js.min.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/videojs-vr@1.7.1/dist/videojs-vr.min.css">
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/video-js.css">
-    <link rel="stylesheet" href="./styles/videojs-vr.css">
 </head>
 <body>
 
@@ -20,14 +20,14 @@
         <div class="main">
             <div id="start">
                 <p>
-                    This web application facilitates QoE studies of panoramic
-                    (and conventional) video. It is inteded for use with
-                    experiments that follow a full factorial design, meaning
-                    that more than one (usually two or three) independent
-                    variables assume different discreet values. The material
-                    being studied, that is, the video, is prepared in each
-                    possible combination of these values. Each variant is then
-                    compared to every other variant in a pairwise manner.
+                    This tool facilitates QoE assessment of panoramic (and
+                    conventional) video. It is inteded for use in experiments
+                    that follow a full factorial design, meaning that more than
+                    one (usually two or three) independent variables assume
+                    different discreet values. The material being studied, that
+                    is, the video, is prepared in each possible combination of
+                    these values. Each variant is then compared to every other
+                    variant in a pairwise manner.
                 </p>
                 <p>
                     In this particular experiment, the video has been encoded in
@@ -50,23 +50,25 @@
                     sequence.
                 </p>
                 <p>
-                    The controls are located below the video. Click on the Previous
-                    and Next buttons to navigate between pairs. Click on the Switch
-                    button (in the middle) to switch between variants within
-                    each pair. Hold and drag the video to change the viewing
-                    angle. Select the preferred variant by double-clicking on
-                    the video or single-clicking on the title, which may work
-                    better on handheld devices.  A colored border will appear
-                    around the video's edge.  Only one variant can be selected;
-                    selecting one will automatically deselect the other. All
-                    pairs must be assessed to complete the experiment.
+                    The controls are located below the video. Click on the
+                    Previous and Next buttons to navigate between pairs. Click
+                    on the Switch button (in the middle) to switch between
+                    variants within each pair. Hold and drag the video to change
+                    the viewing angles. Select the preferred variant by
+                    double-clicking on the video or single-clicking on the
+                    title, which may work better on handheld devices.  A colored
+                    border will appear around the video's edge.  Only one
+                    variant can be selected; selecting one will automatically
+                    deselect the other. All pairs must be assessed to complete
+                    the experiment.
                 </p>
                 <p>
                     In some cases the choice may be all but obvious, while in
                     others it may not. There is no time limit, so take the time
                     needed. There is also no correct or incorrect answer: QoE is
                     a subjective measure. Click on the Next button to start the
-                    experiment.
+                    experiment. Click on <a href="./logs/log.csv">this link</a>
+                    to download previously submitted data in CSV format.
                 </p>
             </div>
             <video
@@ -86,20 +88,20 @@
                 <div id="complete">
                     <p>
                         All pairs have been assessed. To revise past choices,
-                        click on the Previous button. Otherwise, please provide a
-                        candidate number and click on the Submit button to conclude
-                        the experiment. It is adviced to keep a local copy of
-                        the raw data, which are provided below.
+                        click on the Previous button. Otherwise, please provide
+                        a candidate number and click on the Submit button to
+                        conclude the experiment. It is adviced to keep a local
+                        copy of the data, which are provided below.
                     </p>
                     <form>
                         <label for="candidate">Candidate number</label><br>
                         <input type="number" id="cand" name="cand"><br>
                         <label for="experiment">Experiment ID</label><br>
                         <input type="text" id="exp" name="exp" readonly><br>
-                        <label for="data">Raw data (for local copy)</label><br>
+                        <label for="data">Data (for local copy)</label><br>
                         <textarea id="data" name="data" rows=10 readonly>
                         </textarea><br>
-                        <input type="submit" value="Submit">
+                        <input type="button" id="submit" value="Submit">
                     </form>
                 </div>
                 <div id="incomplete">
@@ -122,10 +124,9 @@
     </div>
 </div>
 
-<script type="text/javascript" src="./scripts/video.js"></script>
-<script type="text/javascript" src="./scripts/videojs-vr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/video.js@7.5.0/dist/video.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/videojs-vr@1.7.1/dist/videojs-vr.min.js"></script>
 <script type="text/javascript" src="./scripts/config.js"></script>
-
 <script type="text/javascript" src="./scripts/utils.js"></script>
 <script type="text/javascript" src="./scripts/events.js"></script>
 <script type="text/javascript" src="./scripts/init.js"></script>
