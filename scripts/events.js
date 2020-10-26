@@ -2,7 +2,8 @@
 
 document.getElementById('first').addEventListener('click', function() {
     if (state != states.PLAYING) { return; }
-    
+   
+    player.pause(); 
     setState(states.START);
 });
 
@@ -12,7 +13,7 @@ document.getElementById('previous').addEventListener('click', function() {
     switch(state) {
         case states.PLAYING:
             if (pairIdx > 0) {
-                x = y = z = t = 0; // Reset camera position and seek time.
+                x = y = z = t = 0; // Reset camera position and seek time
                 pairIdx--;
                 varIdx = 0;
                 var src = path + pairs[pairIdx][varIdx] + ext;
@@ -20,12 +21,14 @@ document.getElementById('previous').addEventListener('click', function() {
                 setState(states.PLAYING);
             }
             else {
+                player.pause(); 
                 setState(states.START);
             }
             break;
         case states.END:
-            x = y = z = t = 0; // Reset camera position and seek time.
-            var src = path + pairs[pairs.length - 1][0] + ext;
+            x = y = z = t = 0; // Reset camera position and seek time
+            // pairIdx = pairs.length - 1;
+            var src = path + pairs[pairIdx][0] + ext;
             player.src(src);
             setState(states.PLAYING);
             break;
@@ -37,7 +40,7 @@ document.getElementById('previous').addEventListener('click', function() {
 document.getElementById('switch').addEventListener('click', function() {
     if (state != states.PLAYING) { return; }
     
-    // Conserve camera position and seek time.
+    // Conserve camera position and seek time
     x = player.vr().camera.position.x;
     y = player.vr().camera.position.y;
     z = player.vr().camera.position.z;
@@ -50,18 +53,6 @@ document.getElementById('switch').addEventListener('click', function() {
 });
 
 // Select variant
-
-document.getElementById('player').addEventListener('dblclick', function() {
-    if (state != states.PLAYING) { return; }
-
-    if (sel[pairIdx] == varIdx) {
-        sel[pairIdx] = null;
-    } else {
-        sel[pairIdx] = varIdx;
-    }
-
-    setState(states.PLAYING);
-});
 
 document.getElementById('title').addEventListener('click', function () {
     if (state != states.PLAYING) { return; }
@@ -80,8 +71,6 @@ document.getElementById('title').addEventListener('click', function () {
 document.getElementById('next').addEventListener('click', function() {
     switch(state) {
         case states.START:
-            // x = y = z = t = 0; // Reset camera position and seek time.
-            // pairIdx = varIdx = 0;
             var src = path + pairs[pairIdx][varIdx] + ext;
             player.src(src);
             setState(states.PLAYING);
@@ -91,10 +80,11 @@ document.getElementById('next').addEventListener('click', function() {
                 pairIdx++;
                 varIdx = 0;
                 var src = path + pairs[pairIdx][varIdx] + ext;
-                x = y = z = t = 0; // Reset camera position and seek time.
+                x = y = z = t = 0; // Reset camera position and seek time
                 player.src(src);
                 setState(states.PLAYING);
             } else {
+                player.pause(); 
                 setState(states.END);
             }
             break;
@@ -106,9 +96,9 @@ document.getElementById('next').addEventListener('click', function() {
 document.getElementById('last').addEventListener('click', function() {
     if (state != states.PLAYING) { return; }
     
+    player.pause(); 
     setState(states.END);
 });
-
 
 // Submit data
 
@@ -149,5 +139,7 @@ player.on('play', function() {
 
 window.addEventListener('load', function() {
     setState(states.START);
+    player.controlBar.hide(); // Hide control bar (but keep big play button)
+    
     document.getElementById('exp').value = uuidv4();
 });

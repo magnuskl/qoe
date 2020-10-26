@@ -1,4 +1,4 @@
-// Set application state.
+// Set application state
 
 function setState(_state) {
     switch(_state) {
@@ -24,7 +24,7 @@ function setState(_state) {
             document.getElementById('title').innerHTML = title;
 
             document.getElementById('switch').innerHTML = (varIdx ? '\\' : '/');
-            
+           
             player.show();
             document.getElementById('start').style.display = 'none';
             document.getElementById('end').style.display = 'none';
@@ -80,7 +80,7 @@ function setState(_state) {
     state = _state;
 }
 
-// Generate combinations of array.
+// Generate combinations of array
 
 function combinations(arr, k) {
     var i, j, combs, head, tailcombs;
@@ -113,7 +113,7 @@ function combinations(arr, k) {
     return combs;
 }
 
-// Shuffle array.
+// Shuffle array
 
 function shuffle(arr) {
     var curIdx = arr.length, tmp, rndIdx;
@@ -130,7 +130,7 @@ function shuffle(arr) {
     return arr;
 }
 
-// Generate UUID.
+// Generate UUID
 
 function uuidv4() {
     return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
