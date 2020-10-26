@@ -9,9 +9,11 @@ function setState(_state) {
             document.getElementById('start').style.display = '';
             document.getElementById('end').style.display = 'none';
             
+            document.getElementById('first').style.display = 'none';
             document.getElementById('previous').style.display = 'none';
-            document.getElementById('next').style.display = '';
             document.getElementById('switch').style.display = 'none';
+            document.getElementById('next').style.display = '';
+            document.getElementById('last').style.display = 'none';
 
             break;
         case states.PLAYING:
@@ -35,21 +37,25 @@ function setState(_state) {
                     = 'none';
             }
             
+            document.getElementById('first').style.display = '';
             document.getElementById('previous').style.display = '';
-            document.getElementById('next').style.display = '';
             document.getElementById('switch').style.display = '';
+            document.getElementById('next').style.display = '';
+            document.getElementById('last').style.display = '';
             
             break;
         case states.END:
-            document.getElementById('title').innerHTML = 'THE END';
+            document.getElementById('title').innerHTML = 'RESULTS';
             
             player.hide();
             document.getElementById('start').style.display = 'none';
             document.getElementById('end').style.display = '';
             
+            document.getElementById('first').style.display = 'none';
             document.getElementById('previous').style.display = '';
             document.getElementById('next').style.display = 'none';
             document.getElementById('switch').style.display = 'none';
+            document.getElementById('last').style.display = 'none';
 
             if (sel.indexOf(null) != -1) { // At least one pair not assessed
                 document.getElementById('complete').style.display = 'none';

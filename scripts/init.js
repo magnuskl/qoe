@@ -14,7 +14,7 @@ const states = { // Web application states
 var x = 0, y = 0, z = 0, t = 0; // Current camera position and seek time
 var state   = states.START;  // Current application state
 var pairIdx = 0;  // Current pair index (into pairs array)
-var varIdx = 0;  // Current variant index (0 or 1)
-var pairs = shuffle(combinations(src, 2)); // Randomized array of pairs
-var sel   = []; // Selected variant from each pair
+var varIdx  = 0;  // Current variant index (0 or 1)
+var pairs   = shuffle(combinations(src, 2)); // Randomized array of pairs
+var sel     = []; // Selected variant from each pair
 for(i = 0; i < pairs.length; i++) { sel[i] = null; };

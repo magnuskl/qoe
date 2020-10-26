@@ -53,22 +53,24 @@
                     The controls are located below the video. Click on the
                     Previous and Next buttons to navigate between pairs. Click
                     on the Switch button (in the middle) to switch between
-                    variants within each pair. Hold and drag the video to change
-                    the viewing angles. Select the preferred variant by
-                    double-clicking on the video or single-clicking on the
-                    title, which may work better on handheld devices.  A colored
-                    border will appear around the video's edge.  Only one
-                    variant can be selected; selecting one will automatically
-                    deselect the other. All pairs must be assessed to complete
-                    the experiment.
+                    variants within each pair. Click on the First and Last
+                    buttons to view the instructions and the results,
+                    respectively. Hold and drag the video to change the viewing
+                    angles. Select the preferred variant by double-clicking on
+                    the video or single-clicking on the title, which may work
+                    better on handheld devices.  A colored border will appear
+                    around the video's edge.  Only one variant can be selected;
+                    selecting one will automatically deselect the other. All
+                    pairs must be assessed to complete the experiment.
                 </p>
                 <p>
                     In some cases the choice may be all but obvious, while in
                     others it may not. There is no time limit, so take the time
                     needed. There is also no correct or incorrect answer: QoE is
-                    a subjective measure. Click on the Next button to start the
-                    experiment. Click on <a href="./logs/log.csv">this link</a>
-                    to download previously submitted data in CSV format.
+                    a subjective measure. Click on the Next button to start (or
+                    continue) the experiment. Click on <a
+                    href="./logs/log.csv">this link</a> to download previously
+                submitted data in CSV format.
                 </p>
             </div>
             <video
@@ -114,9 +116,11 @@
             </div>
         </div>
         <div class="controls">
+            <a href="#" id="first" class="button">|&lt;</a>
             <a href="#" id="previous" class="button">&lt;</a>
             <a href="#" id="switch" class="button">/</a>
             <a href="#" id="next" class="button">&gt;</a>
+            <a href="#" id="last" class="button">&gt;|</a>
         </div>
         <div class="footer">
             <p>Copyright &copy; 2020 SimulaMet</p>

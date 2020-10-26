@@ -1,4 +1,12 @@
-// Previous pair
+// First slide
+
+document.getElementById('first').addEventListener('click', function() {
+    if (state != states.PLAYING) { return; }
+    
+    setState(states.START);
+});
+
+// Previous slide
 
 document.getElementById('previous').addEventListener('click', function() {
     switch(state) {
@@ -20,32 +28,6 @@ document.getElementById('previous').addEventListener('click', function() {
             var src = path + pairs[pairs.length - 1][0] + ext;
             player.src(src);
             setState(states.PLAYING);
-            break;
-    }
-});
-
-// Next pair
-
-document.getElementById('next').addEventListener('click', function() {
-    switch(state) {
-        case states.START:
-            x = y = z = t = 0; // Reset camera position and seek time.
-            pairIdx = varIdx = 0;
-            var src = path + pairs[pairIdx][varIdx] + ext;
-            player.src(src);
-            setState(states.PLAYING);
-            break;
-        case states.PLAYING:
-            if (pairIdx < pairs.length - 1) {
-                pairIdx++;
-                varIdx = 0;
-                var src = path + pairs[pairIdx][varIdx] + ext;
-                x = y = z = t = 0; // Reset camera position and seek time.
-                player.src(src);
-                setState(states.PLAYING);
-            } else {
-                setState(states.END);
-            }
             break;
     }
 });
@@ -92,6 +74,41 @@ document.getElementById('title').addEventListener('click', function () {
 
     setState(states.PLAYING);
 });
+
+// Next slide
+
+document.getElementById('next').addEventListener('click', function() {
+    switch(state) {
+        case states.START:
+            // x = y = z = t = 0; // Reset camera position and seek time.
+            // pairIdx = varIdx = 0;
+            var src = path + pairs[pairIdx][varIdx] + ext;
+            player.src(src);
+            setState(states.PLAYING);
+            break;
+        case states.PLAYING:
+            if (pairIdx < pairs.length - 1) {
+                pairIdx++;
+                varIdx = 0;
+                var src = path + pairs[pairIdx][varIdx] + ext;
+                x = y = z = t = 0; // Reset camera position and seek time.
+                player.src(src);
+                setState(states.PLAYING);
+            } else {
+                setState(states.END);
+            }
+            break;
+    }
+});
+
+// Last slide
+
+document.getElementById('last').addEventListener('click', function() {
+    if (state != states.PLAYING) { return; }
+    
+    setState(states.END);
+});
+
 
 // Submit data
 
