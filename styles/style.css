@@ -74,13 +74,17 @@ a.button:active {
     color: white;
 }
 
+#end #exp,
+#end #data {
+    width: 100%;
+}
+
 #end td {
     padding-right: 7px;
 }
 
-#end #exp,
-#end #data {
-    width: 100%;
+#end #prof_level {
+    width: 50%;
 }
 
 .footer {

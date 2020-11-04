@@ -20,12 +20,13 @@ var sel     = []; // Selected variant from each pair
 
 // Deselect all variants
 
-for(i = 0; i < pairs.length; i++) { sel[i] = 0; };
+for(i = 0; i < pairs.length; i++) { sel[i] = null; };
 
 // Set default values
 
-document.getElementById('cand').value = 1;
-document.getElementById('age').value = 20;
-document.getElementById('exp').value = uuidv4();
+document.getElementById('cand').value                       = 1;
+document.getElementById('age').value                        = 20;
 parseUserAgent(navigator.userAgent, parseUserAgentHandler);
-
+document.getElementById('prof_level').value                 = 2;
+document.getElementById('prof_desc').innerHTML              = 'basic';
+document.getElementById('exp').value                        = uuidv4();

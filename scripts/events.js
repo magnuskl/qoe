@@ -1,8 +1,6 @@
 // First slide
 
 document.getElementById('first').addEventListener('click', function() {
-    if (state != states.PLAYING) { return; }
-   
     player.pause(); 
     setState(states.START);
 });
@@ -38,8 +36,6 @@ document.getElementById('previous').addEventListener('click', function() {
 // Switch variant
 
 document.getElementById('switch').addEventListener('click', function() {
-    if (state != states.PLAYING) { return; }
-    
     // Conserve camera position and seek time
     x = player.vr().camera.position.x;
     y = player.vr().camera.position.y;
@@ -94,10 +90,33 @@ document.getElementById('next').addEventListener('click', function() {
 // Last slide
 
 document.getElementById('last').addEventListener('click', function() {
-    if (state != states.PLAYING) { return; }
-    
     player.pause(); 
     setState(states.END);
+});
+
+// Change proficiency level
+
+document.getElementById('prof_level').addEventListener('change', function() {
+    const prof_desc  = document.getElementById('prof_desc');
+
+    switch(this.value) {
+        case '1':
+            prof_desc.innerHTML = 'none';
+            break;
+        case '2':
+            prof_desc.innerHTML = 'basic';
+            break;
+        case '3':
+            prof_desc.innerHTML = 'intermediate';
+            break;
+        case '4':
+            prof_desc.innerHTML = 'advanced';
+            break;
+        case '5':
+            prof_desc.innerHTML = 'proficient';
+            break;
+    }
+
 });
 
 // Submit data
@@ -107,12 +126,14 @@ document.getElementById('submit').addEventListener('click', function () {
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById('cand').disabled = true;
-            document.getElementById('age').disabled = true;
-            document.getElementById('agent').disabled = true;
-            document.getElementById('exp').disabled = true;
-            document.getElementById('data').disabled = true;
-            document.getElementById('submit').disabled = true;
+            document.getElementById('cand').disabled       = true;
+            document.getElementById('age').disabled        = true;
+            document.getElementById('agent').disabled      = true;
+            document.getElementById('prof_level').disabled = true;
+            document.getElementById('prof_desc').disabled  = true;
+            document.getElementById('exp').disabled        = true;
+            document.getElementById('data').disabled       = true;
+            document.getElementById('submit').disabled     = true;
             alert('Success! The data have been submitted.');
         }
     };
@@ -120,6 +141,7 @@ document.getElementById('submit').addEventListener('click', function () {
     const cand   = document.getElementById('cand').value;
     const age    = document.getElementById('age').value;
     const agent  = document.getElementById('agent').value;
+    const prof   = document.getElementById('prof_level').value;
     const exp    = document.getElementById('exp').value;
     const time   = new Date().getTime();
     const data   = document.getElementById('data').value;
@@ -127,6 +149,7 @@ document.getElementById('submit').addEventListener('click', function () {
                  + '&age='          + age
                  + '&agent_simple=' + agent
                  + '&agent_full='   + navigator.userAgent
+                 + '&prof='         + prof
                  + '&exp='          + exp
                  + '&time='         + time
                  + '&data='         + data;

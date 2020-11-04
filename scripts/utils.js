@@ -20,7 +20,8 @@ function setState(_state) {
             var title = 'Pair ' + (pairIdx + 1)
                 + ' of ' + pairs.length
                 + ' - Variant ' + (varIdx + 1)
-                + ' of ' + pairs[0].length;
+                + ' of ' + pairs[0].length
+                + ' - Click here to select';
             document.getElementById('title').innerHTML = title;
 
             document.getElementById('switch').innerHTML = (varIdx ? '\\' : '/');

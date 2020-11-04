@@ -9,6 +9,7 @@ if (!file_exists($file)) {
             "age"               . "," .
             "user_agent_simple" . "," .
             "user_agent_full"   . "," .
+            "proficiency"       . "," .
             "experiment_id"     . "," .
             "timestamp"         . "," .
             "first_variant"     . "," .
@@ -24,6 +25,7 @@ foreach ($entries as $entry) {
                  $_GET["age"]           . ',' .
                  $_GET["agent_simple"]  . ',' .
                  $_GET["agent_full"]    . ',' .
+                 $_GET["prof"]          . ',' .
                  $_GET["exp"]           . ',' .
                  $_GET["time"]          . ',' .
                  $entry                 . "\n";
