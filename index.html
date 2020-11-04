@@ -151,13 +151,48 @@
                     <p>
                         All pairs have been assessed. To revise past choices,
                         click on the Previous button. Otherwise, please provide
-                        your candidate number and click on the Submit button to
-                        conclude the experiment. You are adviced to keep a local
-                        copy of the data, which are provided below.
+                        your candidate number, age, and device details. Your
+                        device is autodetected, but do make sure that the
+                        information is correct&mdash;and amend if not. Click
+                        on the Submit button to conclude the experiment. You are
+                        adviced to keep a local copy of the data, which are
+                        provided below.
                     </p>
                     <form>
-                        <label for="candidate">Candidate number</label><br>
-                        <input type="number" id="cand" name="cand"><br>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="cand">Candidate #</label>
+                                </td>
+                                <td>
+                                    <label for="age">Age</label>
+                                </td>
+                                <td>
+                                    <label for="agent">Device details</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number"
+                                           id="cand"
+                                           name="cand"
+                                           min="1"
+                                           max="999999">
+                                </td>
+                                <td>
+                                    <input type="number"
+                                           id="age"
+                                           name="age"
+                                           min="6"
+                                           max="120">
+                                </td>
+                                <td>
+                                    <input type="text"
+                                           id="agent"
+                                           name="agent">
+                                </td>
+                            </tr>
+                        </table>
                         <label for="experiment">Experiment ID</label><br>
                         <input type="text" id="exp" name="exp" readonly><br>
                         <label for="data">Data (for local copy)</label><br>
