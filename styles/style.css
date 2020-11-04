@@ -18,7 +18,7 @@ html {
     width:         100vw;
     height:        100vh;
     justify-items: center;
-    align-items:   center;
+    align-items:   top;
 }
 
 .inner {
@@ -44,24 +44,22 @@ html {
     text-align:     center;
 }
 
-.controls .button {
-    margin-left:   7px;
-    margin-right:  7px;
-    height:        36px;
-    width:         36px;
-    border-radius: 50%;
-    color:         white;
-    background:    #5800ff;
-}
-
-.controls a {
-    padding-top:     7px;
-    text-decoration: none;
+.button {
     display:         inline-block;
+    margin-left:     7px;
+    margin-right:    7px;
+    padding-top:     7px;
+    height:          36px;
+    width:           36px;
+    border-radius:   50%;
+    color:           white;
+    text-align:      center;
+    text-decoration: none;
+    background:      #5800ff;
 }
 
-.controls a:hover,
-.controls a:active {
+a.button:hover,
+a.button:active {
     color:      black;
     background: #00a8ff;
 }

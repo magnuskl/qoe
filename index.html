@@ -20,57 +20,118 @@
         <div class="main">
             <div id="start">
                 <p>
-                    This tool facilitates QoE assessment of panoramic (and
-                    conventional) video. It is inteded for use in experiments
-                    that follow a full factorial design, meaning that more than
-                    one (usually two or three) independent variables assume
-                    different discreet values. The material being studied, that
-                    is, the video, is prepared in each possible combination of
-                    these values. Each variant is then compared to every other
-                    variant in a pairwise manner.
+                    Welcome&mdash;and thank you for participating!
                 </p>
                 <p>
-                    In this particular experiment, the video has been encoded in
-                    combinations of three different resolutions (480p, 720p, and
-                    1080p) and two different CRF values (23 and 34). This yields
+                    In this experiment, you will watch variants of the same
+                    video to determine which has better quality. The contents of
+                    each variant is the same, but the resolution and compression
+                    level may vary. Each variant will be pairwise compared to
+                    every other variant.
+                </p>
+                <p> 
+                    The original video has been encoded in combinations of three
+                    different resolutions (480p, 720p, and 1080p) and two
+                    different CRF values (23 and 34). This yields
                     3&nbsp;&times;&nbsp;2&nbsp;=&nbsp;6 variants and
-                    6&nbsp;choose&nbsp;2&nbsp;=&nbsp;15 pairs, noting that
+                    6&nbsp;choose&nbsp;2&nbsp;=&nbsp;15 pairs. Note that
                     variants are compared only once and not with themselves.
-                    (Otherwise, there would have been
-                    6&nbsp;&times;&nbsp;6&nbsp;=&nbsp;36 pairs.)
+                    Otherwise, there would have been
+                    6&nbsp;&times;&nbsp;6&nbsp;=&nbsp;36 pairs.
                 </p>
                 <p>
                     Just to keep track of the progress, the current pair and
                     variant are displayed above the video. However, these
                     numbers do not disclose the properties of each variant (i.e.
-                    the encoding parameters), which is part of the purpose: it
-                    is supposed to be a double-blinded experiment, where neither
-                    the instructor nor the participant is biased by knowledge of
-                    the likely outcome. Pairs and variants appear in randomized
-                    sequence.
+                    the encoding parameters). This is part of the purpose:
+                    nobody should be biased by knowledge of the likely outcome.
+                    Pairs and variants appear in randomized sequence.
                 </p>
                 <p>
-                    The controls are located below the video. Click on the
-                    Previous and Next buttons to navigate between pairs. Click
-                    on the video if it does not automatically start to play.
-                    Click on the Switch button (in the middle) to switch between
-                    variants within each pair. Click on the First and Last
-                    buttons to view the instructions and the results,
-                    respectively. Hold and drag the video to change the viewing
-                    angles. Click on the title above the video to select the
-                    preferred variant A colored border will appear around the
-                    video's edge. Only one variant can be selected; selecting
-                    one will automatically deselect the other. All pairs must be
-                    assessed to complete the experiment.
+                    Please take a minute to learn how the controls work:
                 </p>
                 <p>
-                    In some cases the choice may be all but obvious, while in
-                    others it may not. There is no time limit, so take the time
-                    needed. There is also no correct or incorrect answer: QoE is
-                    a subjective measure. Click on the Next button to start (or
-                    continue) the experiment. Click on <a
-                    href="./logs/log.csv">this link</a> to download previously
-                submitted data in CSV format.
+                    The controls are located below the video.  Click on the
+                    Previous and Next buttons to navigate between slides. One
+                    pair, consisting of two variants, is displayed on each
+                    slide. Click on the video if it does not automatically start
+                    to play. Click on the Switch button (in the middle) to
+                    switch between variants within each pair.  Click on the
+                    First and Last buttons to view these instructions and the
+                    results, respectively. As this is panoramic video, hold and
+                    drag the video to change the viewing angles. Click on the
+                    title above the video to select the variant that you prefer.
+                    A colored border will appear around the video's edge. Only
+                    one variant can be selected; selecting one will
+                    automatically deselect the other. Make sure to watch each
+                    variant before you make your decision.  All pairs must be
+                    assessed to complete the experiment. The controls are
+                    summarized in the table below.
+                </p>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="#" class="button">|&lt;</a>
+                        </td>
+                        <td>
+                            Navigate to the first slide (these instructions)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" class="button">&lt;</a>
+                        </td>
+                        <td>
+                            Navigate to the previous slide
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" class="button">/</a>
+                        </td>
+                        <td>
+                            Switch between variants within each pair
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" class="button">&gt;</a>
+                        </td>
+                        <td>
+                            Navigate to the next slide
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" class="button">&gt;|</a>
+                        </td>
+                        <td>
+                            Navigate to the last slide (results)
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    <strong>
+                        To summarize: You will compare six variants of the same
+                        video to determine which has better quality. Each
+                        variant will be compared once to every other
+                        variant&mdash;for a total of 15 comparisons. Click on
+                        the Switch button to change between variants. Click on
+                        the title above the video to make your selection. Make
+                        sure to watch the video from different angles (hold and
+                        drag).
+                    </strong>
+                </p>
+                <p>
+                    Although in some cases the choice may be all but obvious, in
+                    others it may not. There is no time limit, so there is no
+                    need to hurry. There is also no correct or incorrect answer:
+                    QoE is a subjective measure. Click on the Next button to
+                    start (or continue) the experiment. Good luck!
+                </p>
+                <p>
+                    Click on <a href="./logs/log.csv">this link</a> to download
+                    previously submitted data in CSV format.
                 </p>
             </div>
             <video
@@ -90,8 +151,8 @@
                     <p>
                         All pairs have been assessed. To revise past choices,
                         click on the Previous button. Otherwise, please provide
-                        a candidate number and click on the Submit button to
-                        conclude the experiment. It is adviced to keep a local
+                        your candidate number and click on the Submit button to
+                        conclude the experiment. You are adviced to keep a local
                         copy of the data, which are provided below.
                     </p>
                     <form>
