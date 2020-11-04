@@ -103,10 +103,13 @@ document.getElementById('last').addEventListener('click', function() {
 // Submit data
 
 document.getElementById('submit').addEventListener('click', function () {
-    var xhttp = new XMLHttpRequest();
+    const xhttp = new XMLHttpRequest();
+
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById('cand').disabled = true;
+            document.getElementById('age').disabled = true;
+            document.getElementById('agent').disabled = true;
             document.getElementById('exp').disabled = true;
             document.getElementById('data').disabled = true;
             document.getElementById('submit').disabled = true;
@@ -114,14 +117,19 @@ document.getElementById('submit').addEventListener('click', function () {
         }
     };
     
-    var cand = document.getElementById('cand').value;
-    var exp  = document.getElementById('exp').value;
-    var time = new Date().getTime();
-    var data = document.getElementById('data').value;
-    var query = '?cand=' + cand
-              + '&exp=' + exp
-              + '&time=' + time
-              + '&data=' + data;
+    const cand   = document.getElementById('cand').value;
+    const age    = document.getElementById('age').value;
+    const agent  = document.getElementById('agent').value;
+    const exp    = document.getElementById('exp').value;
+    const time   = new Date().getTime();
+    const data   = document.getElementById('data').value;
+    const query  = '?cand='         + cand
+                 + '&age='          + age
+                 + '&agent_simple=' + agent
+                 + '&agent_full='   + navigator.userAgent
+                 + '&exp='          + exp
+                 + '&time='         + time
+                 + '&data='         + data;
     xhttp.open('GET', './scripts/submit.php' + encodeURI(query), true);
     xhttp.send();
 });
@@ -140,6 +148,4 @@ player.on('play', function() {
 window.addEventListener('load', function() {
     setState(states.START);
     player.controlBar.hide(); // Hide control bar (but keep big play button)
-    
-    document.getElementById('exp').value = uuidv4();
 });

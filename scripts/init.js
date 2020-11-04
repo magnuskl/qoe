@@ -17,4 +17,15 @@ var pairIdx = 0;  // Current pair index (into pairs array)
 var varIdx  = 0;  // Current variant index (0 or 1)
 var pairs   = shuffle(combinations(src, 2)); // Randomized array of pairs
 var sel     = []; // Selected variant from each pair
-for(i = 0; i < pairs.length; i++) { sel[i] = null; };
+
+// Deselect all variants
+
+for(i = 0; i < pairs.length; i++) { sel[i] = 0; };
+
+// Set default values
+
+document.getElementById('cand').value = 1;
+document.getElementById('age').value = 20;
+document.getElementById('exp').value = uuidv4();
+parseUserAgent(navigator.userAgent, parseUserAgentHandler);
+
