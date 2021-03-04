@@ -120,6 +120,8 @@ function shuffle(arr) {
     var curIdx = arr.length, tmp, rndIdx;
 
     while (0 !== curIdx) {
+        if (Array.isArray(arr[curIdx])) shuffle(arr[curIdx]);
+
         rndIdx = Math.floor(Math.random() * curIdx);
         curIdx -= 1;
 
